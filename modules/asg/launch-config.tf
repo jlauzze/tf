@@ -1,5 +1,5 @@
 resource "aws_launch_configuration" "lc" {
-  name_prefix                 = "${var.name}-"
+  name_prefix                 = var.name
   image_id                    = "ami-0c2ab3b8efb09f272"
   instance_type               = var.instance_type
   user_data                   = data.template_cloudinit_config.config.rendered
@@ -30,6 +30,5 @@ resource "aws_launch_configuration" "lc" {
 
   lifecycle {
     create_before_destroy = true
-    ignore_changes        = [image_id]
   }
 }

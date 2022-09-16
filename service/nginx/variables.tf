@@ -12,15 +12,9 @@ variable "dns_suffix" {
   default = ""
 }
 variable "instance_size" {
-  type = map(string)
-  default = {
-    demo = "t3.nano"
-  }
+  type = string
+  default = "t3.nano"
 }
-
-#variable "group_size" {
-#  type = map(any)
-#}
 
 variable "subnets" {
   description = "list of subnets to open the nlb to"
@@ -30,12 +24,10 @@ variable "subnets" {
 
 variable "group_size" {
   description = "ASG sizing per env"
-  type        = map(map(number))
+  type        = map(number)
   default = {
-    demo = {
       min_size         = 3,
       max_size         = 3,
       desired_capacity = 3
-    }
   }
 }

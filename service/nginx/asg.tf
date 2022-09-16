@@ -1,5 +1,5 @@
 data "template_file" "user-data" {
-  template = file("./templates/user-data.tpl")
+  template = file("./templates/user-data.yaml")
   vars = {
     region      = var.region
     name        = var.name

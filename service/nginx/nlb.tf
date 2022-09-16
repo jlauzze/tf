@@ -26,7 +26,7 @@ resource "aws_lb_target_group" "https" {
 
 resource "aws_autoscaling_attachment" "https" {
   autoscaling_group_name = module.asg.id
-  lb_target_group_arn    = aws_lb_target_group.https.arn
+  alb_target_group_arn    = aws_lb_target_group.https.arn
 }
 
 resource "aws_lb_listener" "https" {
