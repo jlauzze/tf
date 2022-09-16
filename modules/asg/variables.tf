@@ -24,16 +24,6 @@ variable "user-data" {
   default     = null
 }
 
-variable "ami_owners" {
-  description = "owner of the AMI you want to use"
-  type        = list(string)
-}
-
-variable "ami_filters" {
-  description = "filters to find the AMI you want to use"
-  type        = map(string)
-}
-
 variable "instance_type" {
   description = "class of ec2 instance"
   type        = string

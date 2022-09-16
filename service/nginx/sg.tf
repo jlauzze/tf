@@ -1,6 +1,6 @@
 resource "aws_security_group" "demo" {
   name   = var.name
-  vpc_id = module.base_infrastructure_state.infrastructure_vpc_id
+  vpc_id = module.vpc.vpc_id
 
   ingress {
     description = ""

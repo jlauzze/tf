@@ -1,10 +1,10 @@
 data "template_file" "user-data" {
   template = file("./templates/user-data.tpl")
   vars = {
-    region        = var.region
-    name          = var.name
-    domain        = var.dns_suffix
-    environment   = var.environment
+    region      = var.region
+    name        = var.name
+    domain      = var.dns_suffix
+    environment = var.environment
   }
 }
 
@@ -17,8 +17,6 @@ module "asg" {
   target_group_arns = [module.nlb.target_group_arn]
 
   user-data     = data.template_file.user-data.rendered
-  ami_owners    = var.ami_owners
-  ami_filters   = var.ami_filters
   instance_type = var.instance_size
 
   min_size         = var.group_size["min_size"]
