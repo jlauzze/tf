@@ -23,12 +23,3 @@ output "public_subnet_ids" {
   description = "List of IDs of private subnets"
   value       = module.vpc.public_subnet_ids
 }
-
-#remote state
-output "remote_state_s3" {
-  value = module.remote-state.remote_state_s3
-}
-
-output "statelock_dynamo" {
-  value = module.remote-state.statelock_dynamo
-}
