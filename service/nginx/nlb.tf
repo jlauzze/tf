@@ -1,4 +1,3 @@
-# exhibitor port is covered by the alb module call, we also need to open and load balance the zookeeper port
 module "nlb" {
   source          = "../../modules/nlb"
   name            = var.name
@@ -7,25 +6,12 @@ module "nlb" {
   public_zone_id  = aws_route53_zone.demo_zone.id
   subnets         = var.subnets
   internal        = true
-  port            = 433
-}
-
-resource "aws_lb_target_group" "http" {
-  name        = "${var.name}-nlb-http"
-  port        = 443
-  protocol    = "TCP"
-  vpc_id      = data.aws_vpc.demo.id
-  target_type = "instance"
-}
-
-resource "aws_autoscaling_attachment" "http" {
-  autoscaling_group_name = module.asg.id
-  lb_target_group_arn    = aws_lb_target_group.http.arn
+  port            = 443
 }
 
 resource "aws_lb_target_group" "https" {
   name        = "${var.name}-nlb-https"
-  port        = 443
+  port        = 8080
   protocol    = "TCP"
   vpc_id      = data.aws_vpc.demo.id
   target_type = "instance"
@@ -34,7 +20,7 @@ resource "aws_lb_target_group" "https" {
     healthy_threshold   = 10
     unhealthy_threshold = 10
     protocol            = "HTTP"
-    path                = "/exhibitor/v1/ui/index.html"
+    path                = "/"
   }
 }
 

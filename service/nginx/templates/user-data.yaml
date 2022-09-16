@@ -1,0 +1,38 @@
+yum_repos:
+  # The name of the repository
+  epel-release:
+    name: Extra Packages for Enterprise Linux 7 - $basearch
+    baseurl: http://download.fedoraproject.org/pub/epel/7/$basearch
+    metalink: https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch
+    failovermethod: priority
+    enabled: true
+    gpgcheck: 1
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+  docker-ce-stable:
+    name: Docker CE Stable - $basearch
+    baseurl: https://download.docker.com/linux/centos/$releasever/$basearch/stable
+    enabled: true
+    gpgcheck: 1
+    gpgkey: https://download.docker.com/linux/centos/gpg
+
+# Update yum database on first boot (run 'yum update').
+# Upgrade all packages on first boot
+package_update: true
+package_upgrade: true
+
+packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - git
+  - make
+  - rpm-build
+  - unzip
+  - screen
+
+groups:
+  - docker
+runcmd:
+  - [ systemctl, start, docker ]
+  - [ systemctl, enable, docker ]
+  - "docker run -P -d -p 8080:80 nginxdemos/hello"

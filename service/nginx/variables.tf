@@ -3,9 +3,15 @@ variable "name" {
   type        = string
 }
 
-variable "environment" {}
+variable "environment" {
+  type = string
+  default = "demo-tf"
+}
 variable "dns_suffix" {}
-variable "instance_size" {}
+variable "instance_size" {
+  type = string
+  default = "t3.nano"
+}
 
 variable "group_size" {
   type = map
