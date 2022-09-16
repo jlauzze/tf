@@ -1,6 +1,6 @@
 variable "name" {
   type    = string
-  default = "demo-tf"
+  default = "demo"
 }
 
 variable "environment" {
