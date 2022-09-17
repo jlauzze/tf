@@ -11,3 +11,9 @@ The demo I chose from nginx's demo portion of their repo is: https://github.com/
 
 ## Deploy Ngnix Solution
 * Run a `terraform apply` from `tf > service > nginx`.
+
+## Cleanup
+* Don't forget to destroy all of your resources! Nobody likes the surprise AWS bill.
+* Run a `terraform destory` in the same directories that applied.
+  * First in `tf > service > nginx`.
+  * Then, `tf > remote-state`.
