@@ -1,11 +1,5 @@
 data "template_file" "user-data" {
   template = file("./templates/user-data.tpl")
-#  vars = {
-#    region      = var.region
-#    name        = var.name
-#    domain      = var.dns_suffix
-#    environment = var.environment
-#  }
 }
 
 module "asg" {

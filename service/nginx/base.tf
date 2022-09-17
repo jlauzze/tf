@@ -28,7 +28,13 @@ variable "repo_name" {
   type    = string
 }
 
-variable "tf_s3_bucket" {
-  default = "tf-demo-terraform-state"
-  type    = string
+terraform {
+  backend "s3" {
+    encrypt        = true
+    bucket         = "default-terraform-common-terraform-state"
+    key            = "tf/tf-demo/terraform.tfstate"
+    dynamodb_table = "terraform-statelock"
+    profile        = "default"
+    region         = "us-west-2"
+  }
 }

@@ -12,8 +12,3 @@ variable "repo_name" {
   default = "tf"
   type    = string
 }
-
-#variable "repo_path" {
-#  default = "modules/remote-state"
-#  type    = string
-#}
