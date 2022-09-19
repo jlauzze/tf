@@ -1,5 +1,5 @@
 resource "aws_lb" "nlb" {
-  name               = "${var.name}-nlb"
+  name               = var.name
   internal           = var.internal
   load_balancer_type = "network"
   subnets            = var.subnets
@@ -17,7 +17,7 @@ resource "aws_lb_listener" "nlb" {
 }
 
 resource "aws_lb_target_group" "nlb" {
-  name        = "${var.name}-nlb"
+  name        = var.name
   port        = var.port
   protocol    = var.protocol
   vpc_id      = var.vpc_id
@@ -27,5 +27,6 @@ resource "aws_lb_target_group" "nlb" {
     healthy_threshold   = var.healthy_threshold
     unhealthy_threshold = var.unhealthy_threshold
     protocol            = var.protocol
+    port                = var.port
   }
 }

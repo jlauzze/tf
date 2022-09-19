@@ -2,6 +2,16 @@ data "template_file" "user-data" {
   template = file("./templates/user-data.tpl")
 }
 
+data "template_cloudinit_config" "script" {
+  gzip          = false
+  base64_encode = false
+  part {
+    filename     = "init.cfg"
+    content_type = "text/cloud-config"
+    content      = data.template_file.user-data.rendered
+  }
+}
+
 module "asg" {
   source      = "../../modules/asg"
   name        = var.name
@@ -10,7 +20,7 @@ module "asg" {
 
   target_group_arns = [module.nlb.target_group_arn]
 
-  user-data     = data.template_file.user-data.rendered
+  user-data     = data.template_cloudinit_config.script.rendered
   instance_type = var.instance_size
 
   min_size         = var.group_size["min_size"]

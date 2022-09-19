@@ -10,6 +10,7 @@ The demo I chose from nginx's demo portion of their repo is: https://github.com/
 * Go to `tf > service > nginx > base.tf` and make sure that the terraform backend configuration matches the bucket, key and DynamoDB table you setup in the remote state directory.
 
 ## Deploy Ngnix Solution
+* Add your public IP cidr range to the ingress rule in `tf > service > nginx > sg.tf`
 * Run a `terraform apply` from `tf > service > nginx`.
 
 ## Cleanup

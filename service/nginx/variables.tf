@@ -1,6 +1,6 @@
 variable "name" {
   type    = string
-  default = "demo"
+  default = "demo-nlb"
 }
 
 variable "environment" {
@@ -9,7 +9,7 @@ variable "environment" {
 }
 variable "dns_suffix" {
   type    = string
-  default = ""
+  default = "lauzze.link"
 }
 variable "instance_size" {
   type = string
@@ -26,8 +26,8 @@ variable "group_size" {
   description = "ASG sizing per env"
   type        = map(number)
   default = {
-      min_size         = 3,
-      max_size         = 3,
-      desired_capacity = 3
+      min_size         = 1,
+      max_size         = 1,
+      desired_capacity = 1
   }
 }

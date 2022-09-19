@@ -8,7 +8,8 @@ resource "aws_security_group" "demo" {
     to_port     = 65535
     protocol    = "tcp"
     cidr_blocks = [
-      "174.16.254.121/32" #home public ipv4
+      "0.0.0.0/0" #Opening to the world since I do not know CIDRs for Red Canary folks.
+#      "174.16.254.121/32" #home public ipv4
     ]
   }
 
