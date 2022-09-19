@@ -17,10 +17,6 @@ resource "aws_alb" "alb" {
   security_groups = concat(var.security_groups, [aws_security_group.sg.id])
   subnets         = var.subnets
   idle_timeout    = var.idle_timeout
-  access_logs {
-    bucket  = "pw-${local.name}-${var.environment}-access-logs"
-    enabled = true
-  }
 }
 
 resource "aws_alb_listener" "http" {
