@@ -2,7 +2,6 @@
  * ##  VPC and associated resources
  *
  * This module creates a private VPC and related Resources
-  for jenkins and agents to work on
   https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/
  *
  */
