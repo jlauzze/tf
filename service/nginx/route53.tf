@@ -1,5 +1,5 @@
 resource "aws_route53_zone" "demo_zone" {
-  name = "joe.lauzze.com"
+  name = var.dns_suffix
 
   tags = {
     Environment = "dev"

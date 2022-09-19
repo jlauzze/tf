@@ -9,7 +9,7 @@ variable "environment" {
 }
 variable "dns_suffix" {
   type    = string
-  default = "joe.lauzze.com"
+  default = "lauzze.com"
 }
 variable "instance_size" {
   type = string
