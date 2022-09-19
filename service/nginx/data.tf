@@ -13,3 +13,8 @@ data "aws_subnet_ids" "demo_public" {
   }
   depends_on = [module.vpc]
 }
+
+data "aws_route53_zone" "lauzze" {
+  name         = "lauzze.link"
+  private_zone = false
+}
