@@ -16,7 +16,8 @@ The demo I chose from nginx's demo portion of their repo is: https://github.com/
 ## Scale up Horizontally
 * If you should want to reconfigure the scale of the number of instances in the ASG/Target group, modify the map variable in `tf > service > nginx > variables.tf`
 
-``variable "group_size" {
+````
+variable "group_size" {
   description = "ASG sizing per env"
   type        = map(number)
   default = {
@@ -24,7 +25,8 @@ The demo I chose from nginx's demo portion of their repo is: https://github.com/
       max_size         = 3,
       desired_capacity = 2
   }
-}``
+}
+````
 
 ## Cleanup
 * Don't forget to destroy all of your resources! Nobody likes the surprise AWS bill.
