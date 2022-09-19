@@ -1,0 +1,21 @@
+module "alb" {
+  source                  = "../../modules/alb"
+  name                    = var.name
+  environment             = var.environment
+  region                  = var.region
+  dns_suffix              = var.dns_suffix
+  vpc_id                  = data.aws_vpc.demo.id
+  private_zone_id         = null
+  public_zone_id          = data.aws_route53_zone.lauzze.id
+  subnets                 = data.aws_subnet_ids.demo_public.ids
+  internal                = false
+  security_groups         = [aws_security_group.demo.id]
+  backend_security_groups = [aws_security_group.demo.id]
+  insecure_port           = 8080
+  secure_port             = 443
+  backend_protocol        = "HTTP"
+  health_check_path       = "/"
+  health_check_protocol   = "HTTP"
+  backend_port_override   = 8080
+  health_check_interval   = 60
+}
