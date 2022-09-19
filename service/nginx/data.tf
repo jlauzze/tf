@@ -11,4 +11,5 @@ data "aws_subnet_ids" "demo_public" {
     name   = "tag:Name"
     values = ["default-staging-vpc-public-*"]
   }
+  depends_on = [module.vpc]
 }
