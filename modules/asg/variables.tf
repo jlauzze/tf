@@ -64,7 +64,7 @@ variable "root_volume_size" {
 
 variable "additional_volumes" {
   description = "an array of objects describing any additional volumes needed"
-  type        = list
+  type        = list(any)
   default     = []
 }
 
