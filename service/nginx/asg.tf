@@ -18,7 +18,7 @@ module "asg" {
   environment = var.environment
   vpc_id      = data.aws_vpc.demo.id
 
-  target_group_arns = [module.nlb.target_group_arn]
+  target_group_arns = [module.alb.target_group_arn]
 
   user-data     = data.template_cloudinit_config.script.rendered
   instance_type = var.instance_size

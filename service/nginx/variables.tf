@@ -1,6 +1,6 @@
 variable "name" {
   type    = string
-  default = "demo-nlb"
+  default = "demo-alb"
 }
 
 variable "environment" {

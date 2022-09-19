@@ -1,6 +1,6 @@
 resource "aws_security_group" "sg" {
-  name        = "${var.name}-alb-sg"
-  description = "${var.name} alb sg"
+  name        = "${var.name}-sg"
+  description = "${var.name} sg"
   vpc_id      = var.vpc_id
 }
 

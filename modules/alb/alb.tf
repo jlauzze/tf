@@ -12,7 +12,7 @@ locals {
 }
 
 resource "aws_alb" "alb" {
-  name            = "${local.name}-alb"
+  name            = local.name
   internal        = var.internal
   security_groups = concat(var.security_groups, [aws_security_group.sg.id])
   subnets         = var.subnets
@@ -75,7 +75,7 @@ resource "aws_lb_listener_certificate" "additional_certificates" {
 }
 
 resource "aws_alb_target_group" "alb" {
-  name                 = "${local.name}-alb"
+  name                 = local.name
   port                 = local.backend_port == -1 ? var.secure_port : local.backend_port
   protocol             = var.backend_protocol
   vpc_id               = var.vpc_id
