@@ -27,5 +27,6 @@ resource "aws_lb_target_group" "nlb" {
     healthy_threshold   = var.healthy_threshold
     unhealthy_threshold = var.unhealthy_threshold
     protocol            = var.protocol
+    port                = var.port
   }
 }
