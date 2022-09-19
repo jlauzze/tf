@@ -2,7 +2,7 @@ resource "aws_launch_configuration" "lc" {
   name_prefix                 = var.name
   image_id                    = "ami-0c2ab3b8efb09f272"
   instance_type               = var.instance_type
-  user_data_base64            = data.template_cloudinit_config.config.rendered
+  user_data                   = data.template_cloudinit_config.config.rendered
   key_name                    = "joe_free_account"
   associate_public_ip_address = var.public_ip
   iam_instance_profile        = var.iam_instance_profile
