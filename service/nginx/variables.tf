@@ -26,8 +26,8 @@ variable "group_size" {
   description = "ASG sizing per env"
   type        = map(number)
   default = {
-      min_size         = 1,
-      max_size         = 1,
-      desired_capacity = 1
+      min_size         = 2,
+      max_size         = 2,
+      desired_capacity = 2
   }
 }
